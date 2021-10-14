@@ -1,0 +1,330 @@
+{
+  "name": "trello",
+  "label": "Trello",
+  "description": "Trello is a collaboration tool that organizes your projects into boards. Trello tells you what's being worked on, who's working on what, and where something is in a process.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Case Management",
+  "icon_small_name": "trello_small.png",
+  "icon_large_name": "trello_large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the Trello server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "API Key",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "apiKey",
+        "value": "",
+        "description": "Key associated with API token for your account to access the Trello server and perform the automated operations."
+      },
+      {
+        "title": "API Token",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "apiToken",
+        "value": "",
+        "description": "API token configured for your account to access the Trello server and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_list",
+      "title": "Get a List",
+      "description": "Retrieve information about a List from Trello based on the list ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_list",
+      "output_schema": {
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "List ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "list_id",
+          "value": "",
+          "tooltip": "ID of the list. e.g. 6031cc2b75d8d78a5de7e3a8",
+          "placeholder": "6031cc2b75d8d78a5de7e3a8",
+          "description": "ID of the list whose details you want to retrieve from Trello. e.g., 6031cc2b75d8d78a5de7e3a8"
+        }
+      ]
+    },
+    {
+      "operation": "get_board",
+      "title": "Get a Board",
+      "description": "Retrieves information about board from Trell based on the board ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_board",
+      "output_schema": {
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Board ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "board_id",
+          "value": "",
+          "tooltip": "The ID of the board. e.g. 602f2f91cc8a4e23e393556a",
+          "placeholder": "602f2f91cc8a4e23e393556a",
+          "description": "ID of the board whose details you want to retrieve from Trello. e.g., 602f2f91cc8a4e23e393556a"
+        }
+      ]
+    },
+    {
+      "operation": "create_label",
+      "title": "Create a Label",
+      "description": "Create a new Label on a Board in Trello based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "create_label",
+      "output_schema": {
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Label Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "tooltip": "Name for the label.",
+          "description": "Name for the label that you want to give while creating a label on board in Trello."
+        },
+        {
+          "title": "Color",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "tooltip": "Color for the label. Values are yellow, purple, blue, red, green, orange, black, sky, pink, lime.",
+          "description": "Color for the label that you want to give while creating a label on board in Trello. Values are yellow, purple, blue, red, green, orange, black, sky, pink, lime."
+        },
+        {
+          "title": "Board ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "idBoard",
+          "tooltip": "The ID of the Board to create the Label on.",
+          "description": "The ID of the Board to create the Label on in Trello."
+        }
+      ]
+    },
+    {
+      "operation": "get_label",
+      "title": "Get a Label",
+      "description": "Get a information about a Label from Trello based Label ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_label",
+      "output_schema": {
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Label ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "label_id",
+          "tooltip": "The ID of the label. e.g. 603c6bd95984232d2a060953",
+          "placeholder": "603c6bd95984232d2a060953",
+          "description": "The ID of the label whose information you want to get from Trello. e.g. 603c6bd95984232d2a060953"
+        }
+      ]
+    },
+    {
+      "operation": "create_card",
+      "title": "Create a new Card",
+      "description": "Create a new card in Trello based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "create_card",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "List ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "idList",
+          "tooltip": "The ID of the List. e.g. 6031cc2b75d8d78a5de7e3a8",
+          "placeholder": "6031cc2b75d8d78a5de7e3a8",
+          "description": "The ID of the list the card should be created in Trello. e.g. 6031cc2b75d8d78a5de7e3a8"
+        },
+        {
+          "title": "Card Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "tooltip": "The name of the Card.",
+          "description": "The name of the card which you want to create in Trello."
+        },
+        {
+          "title": "Card Description",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "desc",
+          "tooltip": "The description of the Card.",
+          "description": "The description of the card which you want to create in Trello."
+        },
+        {
+          "title": "Other Fields",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "other_fields",
+          "tooltip": "JSON field provided to enter other fields while creating the card. example, {\"idMembers\":\"demomember\"}",
+          "description": "(Optional) Additional fields in the JSON format that you want to create card in Trello. For example, {\"idMembers\":\"demomember\"}"
+        }
+      ]
+    },
+    {
+      "operation": "get_card",
+      "title": "Get a Card",
+      "description": "Get a information about a Card from Trello based Card ID you have specified.",
+      "category": "investigation",
+      "annotation": "get_card",
+      "output_schema": {
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Card ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "card_id",
+          "tooltip": "The ID of the card. e.g. 602f2f91cc8a4e23e393556a",
+          "placeholder": "602f2f91cc8a4e23e393556a",
+          "description": "The ID of the card whose information you want to get from Trello. e.g. 602f2f91cc8a4e23e393556a"
+        },
+        {
+          "title": "Other Fields",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "other_fields",
+          "tooltip": "JSON field provided to enter other fields while getting card information. example, {\"attachments\":false}",
+          "description": "(Optional) Additional fields in the JSON format that you want to get for card information from Trello. For example, {\"attachments\":false}"
+        }
+      ]
+    },
+    {
+      "operation": "update_card",
+      "title": "Update a Card",
+      "description": "Updtae a card in Trello based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "update_card",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Card ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "card_id",
+          "tooltip": "The ID of the Card. e.g. 603d90cff3a93a326781e5e1",
+          "placeholder": "603d90cff3a93a326781e5e1",
+          "description": "The ID of the card that you want to update in Trello. e.g. 603d90cff3a93a326781e5e1"
+        },
+        {
+          "title": "Card Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "tooltip": "The new name of the Card.",
+          "description": "The new name of the card which you want to update in Trello."
+        },
+        {
+          "title": "Card Description",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "desc",
+          "tooltip": "The new description of the Card.",
+          "description": "The new description of the card which you want to update in Trello."
+        },
+        {
+          "title": "Other Fields",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "other_fields",
+          "tooltip": "JSON field provided to enter other fields while updating the card. example, {\"idMembers\":\"newdemomember\"}",
+          "description": "(Optional) Additional fields in the JSON format that you want to update card in Trello. For example, {\"idMembers\":\"newdemomember\"}"
+        }
+      ]
+    },
+    {
+      "operation": "delete_card",
+      "title": "Delete a Card",
+      "description": "Delete a Card from Trello based Card ID you have specified.",
+      "category": "investigation",
+      "annotation": "delete_card",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Card ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "card_id",
+          "tooltip": "The ID of the card. e.g. 603d90cff3a93a326781e5e1",
+          "placeholder": "603d90cff3a93a326781e5e1",
+          "description": "The ID of the card which you want to delete from Trello. e.g. 603d90cff3a93a326781e5e1"
+        }
+      ]
+    }
+  ]
+}
