@@ -1,0 +1,787 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Trello - 1.0.0",
+      "description": "Sample playbooks for \"Trello\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": "/api/3/images/b40f450e-61f7-49ff-999b-100a3b438a6b",
+      "uuid": "3dd07934-90a9-4baf-97a0-10a43203c5a0",
+      "id": 24,
+      "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "createDate": 1634140497,
+      "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+      "modifyDate": 1634140497,
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create a new Card",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Create a new card in Trello based on the input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634143606,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c83c1a8e-1044-441a-a462-8497b1e33a39",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create a new Card",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "desc": "Adding a new card",
+                  "name": "Test Card",
+                  "idList": "6031cc2b75d8d78a5de7e3a8",
+                  "other_fields": "{\n  \"idMembers\": \"demomember\"\n}"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "create_card",
+                "operationTitle": "Create a new Card",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "46c012cb-2dd2-4c6e-b644-300e6914d9d2",
+              "id": 750
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "e3acb0f3-d92b-4391-b6ab-da56037bc529",
+                "title": "Trello: Create a new Card",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "c83c1a8e-1044-441a-a462-8497b1e33a39",
+              "id": 751
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Create a new Card",
+              "targetStep": "/api/3/workflow_steps/46c012cb-2dd2-4c6e-b644-300e6914d9d2",
+              "sourceStep": "/api/3/workflow_steps/c83c1a8e-1044-441a-a462-8497b1e33a39",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ab12501a-4b62-4e1e-9b0c-138367d0a2ed"
+            }
+          ],
+          "priority": null,
+          "uuid": "0c01f3b5-9539-451d-8968-89ee31ceaa12",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 225,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get a Board",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Retrieves information about board from Trell based on the board ID you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634142041,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/01fd8fc5-ab71-43ee-b24a-861d478e1e1f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "3b1c7407-b285-4766-b468-97f2ae3bcfd4",
+                "title": "Trello: get a Board",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "01fd8fc5-ab71-43ee-b24a-861d478e1e1f",
+              "id": 752
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get a Board",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "board_id": "602f2f91cc8a4e23e393556a"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "get_board",
+                "operationTitle": "get a Board",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "26f59752-5a34-41ca-b125-5b65c2aed62c",
+              "id": 753
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> get a Board",
+              "targetStep": "/api/3/workflow_steps/26f59752-5a34-41ca-b125-5b65c2aed62c",
+              "sourceStep": "/api/3/workflow_steps/01fd8fc5-ab71-43ee-b24a-861d478e1e1f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "987fc88f-73a4-4351-b0a3-a683f63d118d"
+            }
+          ],
+          "priority": null,
+          "uuid": "15673b40-ef8d-43b3-91fa-c9c5489470c0",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 226,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get a Label",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Get a information about a Label from Trello based Label ID you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634142778,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/22f9e4ec-52dc-4572-8c4b-4e5e9b3bedcf",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "2ee46eba-bed5-4c7a-90ca-56546193cadc",
+                "title": "Trello: Get a Label",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "22f9e4ec-52dc-4572-8c4b-4e5e9b3bedcf",
+              "id": 754
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get a Label",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "label_id": "603c6bd95984232d2a060953"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "get_label",
+                "operationTitle": "Get a Label",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "246c72f7-cb27-4057-b888-4b99121274e3",
+              "id": 755
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get a Label",
+              "targetStep": "/api/3/workflow_steps/246c72f7-cb27-4057-b888-4b99121274e3",
+              "sourceStep": "/api/3/workflow_steps/22f9e4ec-52dc-4572-8c4b-4e5e9b3bedcf",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "60084f3d-f292-47b0-ba68-8f131332256d"
+            }
+          ],
+          "priority": null,
+          "uuid": "1b48b382-b7aa-4e8a-b37d-25b4de55da2f",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 227,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update a Card",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Updtae a card in Trello based on the input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634143913,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/8437ee43-3ec3-4f05-a364-41e86a938f28",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Update a Card",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "desc": "Updating Description",
+                  "name": "Test Card",
+                  "card_id": "603d90cff3a93a326781e5e1",
+                  "other_fields": "{\n  \"idMembers\": \"newdemomember\"\n}"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "update_card",
+                "operationTitle": "Update a Card",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "0c639e72-2343-4e06-a2e1-30172194eca1",
+              "id": 756
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "c40e82e8-f469-4c4c-bb2a-003e0d153aca",
+                "title": "Trello: Update a Card",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "8437ee43-3ec3-4f05-a364-41e86a938f28",
+              "id": 757
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Update a Card",
+              "targetStep": "/api/3/workflow_steps/0c639e72-2343-4e06-a2e1-30172194eca1",
+              "sourceStep": "/api/3/workflow_steps/8437ee43-3ec3-4f05-a364-41e86a938f28",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "772b3496-cd40-4ef4-9415-0af8faa4658b"
+            }
+          ],
+          "priority": null,
+          "uuid": "51ed8b6a-5846-4e8f-be34-38a92aebb55e",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 228,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get a Card",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Get a information about a Card from Trello based Card ID you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634142265,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/34c3ec14-da56-42f7-a705-2b207c6c0131",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "e30e1c3d-ebb2-499d-9d64-21aed7b69bbe",
+                "title": "Trello: Get a Card",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "34c3ec14-da56-42f7-a705-2b207c6c0131",
+              "id": 758
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get a Card",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "card_id": "602f2f91cc8a4e23e393556a",
+                  "other_fields": "{\n  \"attachments\": false\n}"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "get_card",
+                "operationTitle": "Get a Card",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "afce878b-ca63-45dd-a6f5-cc2787d3ccb5",
+              "id": 759
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get a Card",
+              "targetStep": "/api/3/workflow_steps/afce878b-ca63-45dd-a6f5-cc2787d3ccb5",
+              "sourceStep": "/api/3/workflow_steps/34c3ec14-da56-42f7-a705-2b207c6c0131",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bd72ff8f-2211-45a8-9fec-7113fe578547"
+            }
+          ],
+          "priority": null,
+          "uuid": "60aa1c01-4982-42bd-8c68-36f4f57ee2b2",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 229,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get a List",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Retrieve information about a List from Trello based on the list ID you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634142897,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e81f90bf-5c8a-4065-94f1-7d868955af7f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "36e8669d-9824-4965-b73d-6c7cd5921602",
+                "title": "Trello: Get a List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "e81f90bf-5c8a-4065-94f1-7d868955af7f",
+              "id": 760
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get a List",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "list_id": "6031cc2b75d8d78a5de7e3a8"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "get_list",
+                "operationTitle": "Get a List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "f6a02574-6469-4813-bae3-687d1ec8a631",
+              "id": 761
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Get a List",
+              "targetStep": "/api/3/workflow_steps/f6a02574-6469-4813-bae3-687d1ec8a631",
+              "sourceStep": "/api/3/workflow_steps/e81f90bf-5c8a-4065-94f1-7d868955af7f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d3786d63-8a46-4a8a-a02b-69854a9e4f0a"
+            }
+          ],
+          "priority": null,
+          "uuid": "72723b4c-339b-489f-8ab3-9d6924b6259a",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 230,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create a Label",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Create a new Label on a Board in Trello based on the input parameters you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634143244,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/ce65c88b-fd0c-4d2e-a0c0-bb3be8fd5217",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create a Label",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "name": "Test Trello Playbook",
+                  "color": "green",
+                  "idBoard": "602f2f91cc8a4e23e393556a"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "create_label",
+                "operationTitle": "Create a Label",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "3ae37b91-d6af-4472-9fe1-ceecfb8ed047",
+              "id": 762
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "b745b67b-47e0-445b-a419-1128bcdc9d01",
+                "title": "Trello: Create a Label",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "ce65c88b-fd0c-4d2e-a0c0-bb3be8fd5217",
+              "id": 763
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Create a Label",
+              "targetStep": "/api/3/workflow_steps/3ae37b91-d6af-4472-9fe1-ceecfb8ed047",
+              "sourceStep": "/api/3/workflow_steps/ce65c88b-fd0c-4d2e-a0c0-bb3be8fd5217",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "120b7c6f-222a-4fa2-8cac-2215103c14a9"
+            }
+          ],
+          "priority": null,
+          "uuid": "9a116335-503e-49b8-81d7-24e808950f3b",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 231,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144402,
+          "owners": [],
+          "isPrivate": false
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete a Card",
+          "aliasName": null,
+          "tag": "#Trello",
+          "description": "Delete a Card from Trello based Card ID you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1634144185,
+          "collection": "/api/3/workflow_collections/3dd07934-90a9-4baf-97a0-10a43203c5a0",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d1457c21-6ad7-4a99-bf79-d2b949164e2a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete a Card",
+              "description": null,
+              "arguments": {
+                "name": "Trello",
+                "config": "c20ef9bf-a488-4ca6-a241-edc8fcda3410",
+                "params": {
+                  "card_id": "603d90cff3a93a326781e5e1"
+                },
+                "version": "1.0.0",
+                "connector": "trello",
+                "operation": "delete_card",
+                "operationTitle": "Delete a Card",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "c9b567db-9700-4f92-8814-d9a646044cb6",
+              "id": 764
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "eed4247b-b6fb-4e3e-8ae0-aaa8fbc0313e",
+                "title": "Trello: Delete a Card",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "d1457c21-6ad7-4a99-bf79-d2b949164e2a",
+              "id": 765
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts -> Delete a Card",
+              "targetStep": "/api/3/workflow_steps/c9b567db-9700-4f92-8814-d9a646044cb6",
+              "sourceStep": "/api/3/workflow_steps/d1457c21-6ad7-4a99-bf79-d2b949164e2a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "17cddc40-c857-4dfb-8092-5460c7761219"
+            }
+          ],
+          "priority": null,
+          "uuid": "e138dd27-4aec-47fe-9bdf-c76f742d382f",
+          "recordTags": [
+            "Trello"
+          ],
+          "id": 232,
+          "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "createDate": 1634140497,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1634144403,
+          "owners": [],
+          "isPrivate": false
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Trello"
+  ]
+}
