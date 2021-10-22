@@ -9,7 +9,7 @@
   "category": "Case Management",
   "icon_small_name": "trello_small.png",
   "icon_large_name": "trello_large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/trello/182/trello-v1-0-0",
   "configuration": {
     "fields": [
       {
