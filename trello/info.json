@@ -74,7 +74,7 @@
           "value": "",
           "tooltip": "ID of the list. e.g. 6031cc2b75d8d78a5de7e3a8",
           "placeholder": "6031cc2b75d8d78a5de7e3a8",
-          "description": "ID of the list whose details you want to retrieve from Trello. e.g., 6031cc2b75d8d78a5de7e3a8"
+          "description": "The ID of the list whose details you want to retrieve from Trello. For example, 6031cc2b75d8d78a5de7e3a8"
         }
       ]
     },
@@ -98,14 +98,14 @@
           "value": "",
           "tooltip": "The ID of the board. e.g. 602f2f91cc8a4e23e393556a",
           "placeholder": "602f2f91cc8a4e23e393556a",
-          "description": "ID of the board whose details you want to retrieve from Trello. e.g., 602f2f91cc8a4e23e393556a"
+          "description": "The ID of the board whose details you want to retrieve from Trello. For example, 602f2f91cc8a4e23e393556a"
         }
       ]
     },
     {
       "operation": "create_label",
       "title": "Create a Label",
-      "description": "Create a new Label on a Board in Trello based on the input parameters you have specified.",
+      "description": "Creates a new Label on a Board in Trello based on the label name, color, and board ID you have specified.",
       "category": "investigation",
       "annotation": "create_label",
       "output_schema": {
@@ -120,7 +120,7 @@
           "type": "text",
           "name": "name",
           "tooltip": "Name for the label.",
-          "description": "Name for the label that you want to give while creating a label on board in Trello."
+          "description": "The name of the label that you want to create on the specified board in Trello."
         },
         {
           "title": "Color",
@@ -130,7 +130,7 @@
           "type": "text",
           "name": "color",
           "tooltip": "Color for the label. Values are yellow, purple, blue, red, green, orange, black, sky, pink, lime.",
-          "description": "Color for the label that you want to give while creating a label on board in Trello. Values are yellow, purple, blue, red, green, orange, black, sky, pink, lime."
+          "description": "The color to be set for the label that you want to create on the specified board in Trello. Supported values are yellow, purple, blue, red, green, orange, black, sky, pink, and lime."
         },
         {
           "title": "Board ID",
@@ -140,14 +140,14 @@
           "type": "text",
           "name": "idBoard",
           "tooltip": "The ID of the Board to create the Label on.",
-          "description": "The ID of the Board to create the Label on in Trello."
+          "description": "The ID of the board in Trello for which you want to create the new label."
         }
       ]
     },
     {
       "operation": "get_label",
       "title": "Get a Label",
-      "description": "Get a information about a Label from Trello based Label ID you have specified.",
+      "description": "Retrieves information about a label from Trello based on the label ID you have specified.",
       "category": "investigation",
       "annotation": "get_label",
       "output_schema": {
@@ -163,14 +163,14 @@
           "name": "label_id",
           "tooltip": "The ID of the label. e.g. 603c6bd95984232d2a060953",
           "placeholder": "603c6bd95984232d2a060953",
-          "description": "The ID of the label whose information you want to get from Trello. e.g. 603c6bd95984232d2a060953"
+          "description": "The ID of the label whose information you want to retrieve from Trello. For example, 603c6bd95984232d2a060953"
         }
       ]
     },
     {
       "operation": "create_card",
       "title": "Create a new Card",
-      "description": "Create a new card in Trello based on the input parameters you have specified.",
+      "description": "Creates a new card in Trello based on the list ID, card name, and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "create_card",
       "output_schema": {},
@@ -185,7 +185,7 @@
           "name": "idList",
           "tooltip": "The ID of the List. e.g. 6031cc2b75d8d78a5de7e3a8",
           "placeholder": "6031cc2b75d8d78a5de7e3a8",
-          "description": "The ID of the list the card should be created in Trello. e.g. 6031cc2b75d8d78a5de7e3a8"
+          "description": "The ID of the list in Trello in which you want to create the card. For example, 6031cc2b75d8d78a5de7e3a8"
         },
         {
           "title": "Card Name",
@@ -195,7 +195,7 @@
           "type": "text",
           "name": "name",
           "tooltip": "The name of the Card.",
-          "description": "The name of the card which you want to create in Trello."
+          "description": "The name of the card that you want to create in Trello."
         },
         {
           "title": "Card Description",
@@ -205,7 +205,7 @@
           "type": "text",
           "name": "desc",
           "tooltip": "The description of the Card.",
-          "description": "The description of the card which you want to create in Trello."
+          "description": "The description of the card that you want to create in Trello."
         },
         {
           "title": "Other Fields",
@@ -215,14 +215,14 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "JSON field provided to enter other fields while creating the card. example, {\"idMembers\":\"demomember\"}",
-          "description": "(Optional) Additional fields in the JSON format that you want to create card in Trello. For example, {\"idMembers\":\"demomember\"}"
+          "description": "(Optional) Additional fields in the JSON format to be added to the card that you want to create in Trello. For example, {\"idMembers\":\"demomember\"}"
         }
       ]
     },
     {
       "operation": "get_card",
       "title": "Get a Card",
-      "description": "Get a information about a Card from Trello based Card ID you have specified.",
+      "description": "Retrieves information about a card from Trello based on the card ID you have specified.",
       "category": "investigation",
       "annotation": "get_card",
       "output_schema": {
@@ -238,7 +238,7 @@
           "name": "card_id",
           "tooltip": "The ID of the card. e.g. 602f2f91cc8a4e23e393556a",
           "placeholder": "602f2f91cc8a4e23e393556a",
-          "description": "The ID of the card whose information you want to get from Trello. e.g. 602f2f91cc8a4e23e393556a"
+          "description": "The ID of the card whose information you want to retrieve from Trello. For example, 602f2f91cc8a4e23e393556a"
         },
         {
           "title": "Other Fields",
@@ -248,14 +248,14 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "JSON field provided to enter other fields while getting card information. example, {\"attachments\":false}",
-          "description": "(Optional) Additional fields in the JSON format that you want to get for card information from Trello. For example, {\"attachments\":false}"
+          "description": "(Optional) Additional fields in the JSON format that you want to retrieve for the card from Trello. For example, {\"attachments\":false}"
         }
       ]
     },
     {
       "operation": "update_card",
       "title": "Update a Card",
-      "description": "Updtae a card in Trello based on the input parameters you have specified.",
+      "description": "Updates a new card in Trello based on the card ID and other input parameters you have specified.",
       "category": "investigation",
       "annotation": "update_card",
       "output_schema": {},
@@ -270,7 +270,7 @@
           "name": "card_id",
           "tooltip": "The ID of the Card. e.g. 603d90cff3a93a326781e5e1",
           "placeholder": "603d90cff3a93a326781e5e1",
-          "description": "The ID of the card that you want to update in Trello. e.g. 603d90cff3a93a326781e5e1"
+          "description": "The ID of the card that you want to update in Trello. For example, 603d90cff3a93a326781e5e1"
         },
         {
           "title": "Card Name",
@@ -280,7 +280,7 @@
           "type": "text",
           "name": "name",
           "tooltip": "The new name of the Card.",
-          "description": "The new name of the card which you want to update in Trello."
+          "description": "The name of the card that you want to update in Trello."
         },
         {
           "title": "Card Description",
@@ -290,7 +290,7 @@
           "type": "text",
           "name": "desc",
           "tooltip": "The new description of the Card.",
-          "description": "The new description of the card which you want to update in Trello."
+          "description": "The description of the card that you want to update in Trello."
         },
         {
           "title": "Other Fields",
@@ -300,14 +300,14 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "JSON field provided to enter other fields while updating the card. example, {\"idMembers\":\"newdemomember\"}",
-          "description": "(Optional) Additional fields in the JSON format that you want to update card in Trello. For example, {\"idMembers\":\"newdemomember\"}"
+          "description": "(Optional) Additional fields in the JSON format to be added to the card that you want to update in Trello. For example, {\"idMembers\":\"newdemomember\"}"
         }
       ]
     },
     {
       "operation": "delete_card",
       "title": "Delete a Card",
-      "description": "Delete a Card from Trello based Card ID you have specified.",
+      "description": "Delete a card from Trello based on the card ID you have specified.",
       "category": "investigation",
       "annotation": "delete_card",
       "output_schema": {},
@@ -322,7 +322,7 @@
           "name": "card_id",
           "tooltip": "The ID of the card. e.g. 603d90cff3a93a326781e5e1",
           "placeholder": "603d90cff3a93a326781e5e1",
-          "description": "The ID of the card which you want to delete from Trello. e.g. 603d90cff3a93a326781e5e1"
+          "description": "The ID of the card that you want to delete from Trello. For example, 603d90cff3a93a326781e5e1"
         }
       ]
     }
